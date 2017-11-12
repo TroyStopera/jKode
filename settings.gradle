@@ -1,0 +1,3 @@
+rootProject.name = 'jKode'
+
+include 'jKode-jvm', 'jKode-js'
