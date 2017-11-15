@@ -1,13 +1,13 @@
 package com.troystopera.jkode.exec
 
-import com.troystopera.jkode.Scope
 import com.troystopera.jkode.vars.Var
 
 abstract class Executable {
 
-    protected abstract fun execute(scope: Scope, output: Output): Var<*>?
+    protected abstract fun onExecute(scope: Scope, output: ExecOutput, watcher: ExecutionWatcher?): Var<*>?
 
-    fun execute(executor: Executor, scope: Scope, output: Output): Var<*>? =
-            executor.override(this)?.execute(this, scope, output) ?: execute(scope, output)
+    fun execute(scope: Scope, output: ExecOutput, watcher: ExecutionWatcher?): Var<*>? =
+            watcher?.override(this)?.execute(this, scope, output, watcher)
+                    ?: onExecute(scope, output, watcher)
 
 }
