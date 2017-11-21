@@ -1,13 +1,16 @@
 package com.troystopera.jkode
 
+import com.troystopera.jkode.exec.ExecOutput
 import com.troystopera.jkode.exec.Executable
-import com.troystopera.jkode.exec.ExecutionOverride
-import com.troystopera.jkode.exec.ExecutionWatcher
+import com.troystopera.jkode.exec.Scope
 
-class Executor : ExecutionWatcher {
+open class Executor {
 
-    override fun <E : Executable> override(executable: E): ExecutionOverride<E>? {
-        TODO()
+    open fun execute(executable: Executable): Output {
+        val output = ExecOutput()
+        val scope = Scope()
+        executable.execute(scope, output, null, null)
+        return output
     }
 
 }
