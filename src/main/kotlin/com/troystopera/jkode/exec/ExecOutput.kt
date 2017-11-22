@@ -1,9 +1,10 @@
 package com.troystopera.jkode.exec
 
-import com.troystopera.jkode.Output
 import com.troystopera.jkode.vars.Var
 
 class ExecOutput : Output() {
+
+    fun hasReturn() = returnVar != null
 
     fun print(string: String) {
         console.add(string)

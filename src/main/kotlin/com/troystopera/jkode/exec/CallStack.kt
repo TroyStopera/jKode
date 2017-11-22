@@ -1,20 +1,18 @@
 package com.troystopera.jkode.exec
 
-expect class CallStack<E : Executable> {
+abstract class CallStack {
 
-    val base: String
+    abstract fun getBase(): String
 
-    val callers: List<String>
+    abstract fun getCallers(): List<String>
 
-    override fun toString(): String
+    override fun toString() = getBase() + getCallers().joinToString { "@" + it }
 
-    override fun equals(other: Any?): Boolean
-
-    override fun hashCode(): Int
-
-    companion object {
-        fun execToString(executable: Executable): String
-        fun callerToString(caller: Caller?): String
+    override fun equals(other: Any?): Boolean {
+        if (other !is CallStack) return false
+        return toString() == other.toString()
     }
+
+    override fun hashCode() = toString().hashCode()
 
 }
