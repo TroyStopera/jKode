@@ -19,13 +19,6 @@ class OverrideExecutor : Executor() {
         callStack.endCall()
     }
 
-    override fun execute(executable: Executable<*>): Output {
-        val output = ExecOutput()
-        val scope = Scope()
-        executable.execute(scope, output, this)
-        return output
-    }
-
     @Suppress("UNCHECKED_CAST")
     fun <T : Any?, E : Executable<T>> addOverride(watchable: Watchable<E>, override: ExecutionOverride<T, E>) {
         var node: OverrideNode<T, E> = overrides[watchable.getBase()] as OverrideNode<T, E>? ?: {

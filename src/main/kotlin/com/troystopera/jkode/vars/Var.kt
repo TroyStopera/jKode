@@ -1,6 +1,6 @@
 package com.troystopera.jkode.vars
 
-abstract class Var<T : Any>(val type: VarType, var value: T) {
+abstract class Var<out T : Any>(val type: VarType, val value: T) {
 
     override fun toString(): String = value.toString()
 
