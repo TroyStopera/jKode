@@ -11,7 +11,7 @@ class MutableCallStack : CallStack() {
 
     override fun getCallers() = callers
 
-    fun startCall(executable: Executable) {
+    fun startCall(executable: Executable<*>) {
         if (base.isNotEmpty()) callers.add(0, base)
         base = Watchable.execToString(executable)
     }
