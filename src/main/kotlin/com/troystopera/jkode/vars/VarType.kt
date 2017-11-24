@@ -2,6 +2,6 @@ package com.troystopera.jkode.vars
 
 enum class VarType {
 
-    UNIT, INT, STRING
+    ARRAY, UNIT, BOOLEAN, INT, STRING
 
 }
