@@ -1,5 +1,7 @@
 package com.troystopera.jkode
 
+import com.troystopera.jkode.control.CtrlObject
+import com.troystopera.jkode.control.Return
 import com.troystopera.jkode.exec.ExecOutput
 import com.troystopera.jkode.exec.Executable
 import com.troystopera.jkode.exec.Executor
@@ -10,16 +12,12 @@ open class CodeBlock : Component() {
 
     private val executables = mutableListOf<Executable<*>>()
 
-    fun add(executable: Executable<Unit>) = executables.add(executable)
+    fun add(executable: Executable<*>) = executables.add(executable)
 
-    fun add(component: Component) = executables.add(component)
-
-    fun add(aReturn: Return<*>) = executables.add(aReturn)
-
-    override fun onExecute(scope: Scope, output: ExecOutput?, executor: Executor?): Var<*>? {
+    override fun onExecute(scope: Scope, output: ExecOutput?, executor: Executor?): CtrlObject<*>? {
         for (e in executables) {
             val v = e.execute(scope, output, executor)
-            if (v is Var<*>) return v
+            if (v is CtrlObject<*>) return v
         }
         return null
     }
