@@ -9,7 +9,7 @@ abstract class JKodeCompileException(
 ) : JKodeException(message, stackTrace) {
 
     enum class Type {
-        FUNCTION_RETURN, UNKNOWN_TOKEN
+        FUNCTION_RETURN, UNKNOWN_TOKEN, TYPE_CAST, ALREADY_DECLARED
     }
 
 }

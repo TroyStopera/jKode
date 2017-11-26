@@ -7,15 +7,12 @@ import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.Scope
 import com.troystopera.jkode.vars.VarType
 
-class Assignment private constructor(
-        val varType: VarType,
+class Assignment(
         val varName: String,
         private val evaluation: Evaluation<*>
 ) : Statement() {
 
-    constructor(varName: String, evaluation: Evaluation<*>) : this(evaluation.varType, varName, evaluation)
-
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
-            scope.assign(varType, varName, evaluation.execute(scope, output, executor), executor)
+            scope.assign(varName, evaluation.execute(scope, output, executor), executor)
 
 }
