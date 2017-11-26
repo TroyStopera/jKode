@@ -1,7 +1,7 @@
 package com.troystopera.jkode.exec
 
 import com.troystopera.jkode.exceptions.JKodeException
-import com.troystopera.jkode.exceptions.runtime.JKodeNullException
+import com.troystopera.jkode.exceptions.runtime.NullVarException
 
 abstract class Executable<out T : Any?> {
 
@@ -14,8 +14,7 @@ abstract class Executable<out T : Any?> {
             executor?.onPostExecute(this, result)
             return result
         } catch (e: JKodeException) {
-            //NPE needs its stack trace set due to the nature of when it is thrown
-            if (e is JKodeNullException) e.stackTrace = executor?.currentCallStack()
+            e.setStackTrace(executor?.currentCallStack())
             output?.err(e)
             throw e
         }

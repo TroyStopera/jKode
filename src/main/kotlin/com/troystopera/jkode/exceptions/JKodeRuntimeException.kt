@@ -1,15 +1,12 @@
 package com.troystopera.jkode.exceptions
 
-import com.troystopera.jkode.exec.CallStack
-
 abstract class JKodeRuntimeException(
         val type: Type,
-        message: String,
-        stackTrace: CallStack?
-) : JKodeException(message, stackTrace) {
+        message: String
+) : JKodeException(message) {
 
     enum class Type {
-        NULL_POINTER
+        NULL_VAR
     }
 
 }

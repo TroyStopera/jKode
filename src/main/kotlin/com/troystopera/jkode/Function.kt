@@ -24,7 +24,7 @@ class Function<out T : Var<*>>(
             @Suppress("UNCHECKED_CAST")
             return (body.execute(scope.newChildScope(), output, executor) as CtrlObject<T>).value
         } catch (e: Exception) {
-            throw FunctionReturnException(this, executor?.currentCallStack(), e)
+            throw FunctionReturnException(this, e)
         }
     }
 

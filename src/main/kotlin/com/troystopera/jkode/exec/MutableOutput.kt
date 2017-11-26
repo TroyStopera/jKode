@@ -30,9 +30,9 @@ class MutableOutput : Output {
         } else if (exception is JKodeRuntimeException) {
             runtimeException = exception
             var string = (exception::class.simpleName ?: "JKodeException") + ": " + exception.message +
-                    if (exception.stackTrace != null) " @ " + exception.stackTrace?.getBase()
+                    if (exception.getStackTrace() != null) " @ " + exception.getStackTrace()?.getBase()
                     else ""
-            exception.stackTrace?.getCallers()?.forEach { string += "\n\t@" + it }
+            exception.getStackTrace()?.getCallers()?.forEach { string += "\n\t@" + it }
             print(string)
         }
     }

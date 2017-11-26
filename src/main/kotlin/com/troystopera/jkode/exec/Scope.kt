@@ -1,8 +1,9 @@
 package com.troystopera.jkode.exec
 
-import com.troystopera.jkode.exceptions.compile.JKodeDeclareException
-import com.troystopera.jkode.exceptions.compile.JKodeTokenException
-import com.troystopera.jkode.exceptions.compile.JKodeTypeException
+import com.troystopera.jkode.exceptions.compile.ConflictingDeclarationException
+import com.troystopera.jkode.exceptions.compile.TypeCastException
+import com.troystopera.jkode.exceptions.compile.UnknownTokenException
+import com.troystopera.jkode.vars.NullVar
 import com.troystopera.jkode.vars.Var
 import com.troystopera.jkode.vars.VarType
 
@@ -11,9 +12,9 @@ class Scope(val parent: Scope? = null) {
     private val values = hashMapOf<VarType, HashMap<String, Var<*>?>>()
     private val names = hashMapOf<String, VarType>()
 
-    fun declare(type: VarType, name: String, value: Var<*>?, executor: Executor?) {
+    fun declare(type: VarType, name: String, value: Var<*>?) {
         if (names.containsKey(name))
-            throw JKodeDeclareException(name, executor?.currentCallStack())
+            throw ConflictingDeclarationException(name)
         val map = values[type] ?: {
             val map = hashMapOf<String, Var<*>?>()
             values.put(type, map)
@@ -24,17 +25,17 @@ class Scope(val parent: Scope? = null) {
         map.put(name, value)
     }
 
-    fun assign(name: String, value: Var<*>?, executor: Executor?) {
+    fun assign(name: String, value: Var<*>? = NullVar) {
         if (names.containsKey(name)) {
-            values[value?.varType]?.put(name, value) ?: throw JKodeTypeException(name, names[name], value?.varType, executor?.currentCallStack())
+            values[value?.varType]?.put(name, value) ?: throw TypeCastException(name, names[name], value?.varType)
         } else {
-            parent?.assign(name, value, executor) ?: throw JKodeTokenException(name, executor?.currentCallStack())
+            parent?.assign(name, value) ?: throw UnknownTokenException(name)
         }
     }
 
-    operator fun get(name: String, executor: Executor?): Var<*>? = values[names[name]]?.get(name)
-            ?: parent?.get(name, executor)
-            ?: throw JKodeTokenException(name, executor?.currentCallStack())
+    operator fun get(name: String): Var<*>? = values[names[name]]?.get(name)
+            ?: parent?.get(name)
+            ?: throw UnknownTokenException(name)
 
     fun newChildScope(): Scope = Scope(this)
 

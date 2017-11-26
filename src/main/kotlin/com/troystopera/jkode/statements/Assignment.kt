@@ -13,6 +13,6 @@ class Assignment(
 ) : Statement() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
-            scope.assign(varName, evaluation.execute(scope, output, executor), executor)
+            scope.assign(varName, evaluation.execute(scope, output, executor))
 
 }

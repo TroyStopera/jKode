@@ -18,6 +18,6 @@ class Declaration private constructor(
     constructor(name: String, initialValue: Evaluation<*>) : this(initialValue.varType, name, initialValue)
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
-            scope.declare(varType, varName, initialValue?.execute(scope, output, executor), executor)
+            scope.declare(varType, varName, initialValue?.execute(scope, output, executor))
 
 }
