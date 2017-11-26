@@ -1,7 +1,7 @@
 package com.troystopera.jkode.control
 
 import com.troystopera.jkode.Evaluation
-import com.troystopera.jkode.exec.ExecOutput
+import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Executable
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.Scope
@@ -11,7 +11,7 @@ class Return<out T : Var<*>>(
         private val evaluation: Evaluation<T>
 ) : Executable<CtrlObject<T>>() {
 
-    override fun onExecute(scope: Scope, output: ExecOutput?, executor: Executor?) =
+    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
             CtrlObject(CtrlType.RETURN, evaluation.execute(scope, output, executor))
 
 }

@@ -4,19 +4,12 @@ import com.troystopera.jkode.exec.*
 
 class OverrideExecutor : Executor() {
 
-    private val callStack = MutableCallStack()
-
     private val overrides = hashMapOf<String, OverrideNode<*, *>>()
     private val cache = hashMapOf<String, ExecutionOverride<*, *>?>()
 
     override fun <T, E : Executable<T>> onPreExecute(executable: E): ExecutionOverride<T, E>? {
-        callStack.startCall(executable)
-        return getOverride(callStack)
-    }
-
-    override fun <T, E : Executable<T>> onPostExecute(executable: E, result: T) {
-        super.onPostExecute(executable, result)
-        callStack.endCall()
+        super.onPreExecute(executable)
+        return getOverride(currentCallStack())
     }
 
     @Suppress("UNCHECKED_CAST")

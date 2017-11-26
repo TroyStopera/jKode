@@ -1,3 +1,8 @@
 package com.troystopera.jkode.exceptions
 
-abstract class JKodeException(override val message: String, override val cause: Exception?) : Exception()
+import com.troystopera.jkode.exec.CallStack
+
+abstract class JKodeException(
+        override val message: String,
+        open val stackTrace: CallStack?
+) : Exception()

@@ -1,17 +1,17 @@
 package com.troystopera.jkode.exec
 
+import com.troystopera.jkode.exceptions.JKodeCompileException
+import com.troystopera.jkode.exceptions.JKodeRuntimeException
 import com.troystopera.jkode.vars.Var
 
-open class Output {
+interface Output {
 
-    protected val console = mutableListOf<String>()
-    protected val error = mutableListOf<String>()
-    protected var returnVar: Var<*>? = null
+    fun getConsole(): List<String>
 
-    fun getConsole(): List<String> = console.toList()
+    fun getReturnVar(): Var<*>?
 
-    fun getErrors(): List<String> = error.toList()
+    fun getCompileException(): JKodeCompileException?
 
-    fun getReturn(): Var<*>? = returnVar
+    fun getRuntimeException(): JKodeRuntimeException?
 
 }

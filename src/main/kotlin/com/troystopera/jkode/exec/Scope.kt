@@ -1,6 +1,6 @@
 package com.troystopera.jkode.exec
 
-import com.troystopera.jkode.exceptions.JKodeCompileException
+import com.troystopera.jkode.exceptions.compile.JKodeTokenException
 import com.troystopera.jkode.vars.Var
 import com.troystopera.jkode.vars.VarType
 
@@ -19,10 +19,10 @@ class Scope(val parent: Scope? = null) {
         map.put(name, value)
     }
 
-    fun assign(type: VarType, name: String, value: Var<*>?) {
+    fun assign(type: VarType, name: String, value: Var<*>?, executor: Executor?) {
         if (vars[type]?.containsKey(name) == true) {
             vars[type]?.put(name, value)
-        } else throw JKodeCompileException("No such $type variable $name", null)
+        } else throw JKodeTokenException(name, executor?.currentCallStack())
     }
 
     fun newChildScope(): Scope = Scope(this)
