@@ -9,4 +9,4 @@ class TypeCastException(
         type1: VarType?,
         type2: VarType?,
         override val cause: Throwable? = null
-) : JKodeCompileException(Type.TYPE_CAST, "Variable $variable[$type1] cannot be assigned to $type2")
+) : JKodeCompileException(Type.TYPE_CAST, "Variable $variable:$type1 cannot be assigned to $type2")

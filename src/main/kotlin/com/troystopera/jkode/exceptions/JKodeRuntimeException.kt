@@ -6,7 +6,7 @@ abstract class JKodeRuntimeException(
 ) : JKodeException(message) {
 
     enum class Type {
-        NULL_VAR
+        NULL_VAR, ARRAY_INDEX
     }
 
 }

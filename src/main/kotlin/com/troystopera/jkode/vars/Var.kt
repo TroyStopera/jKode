@@ -12,7 +12,7 @@ abstract class Var<out T : Any>(
 
     override fun toString() = value.toString()
 
-    override fun equals(other: Any?) = (other as? Var<*>)?.value?.equals(value) ?: false
+    override fun equals(other: Any?) = (other as? Var<*>)?.value?.equals(value) == true
 
     override fun hashCode() = value.hashCode()
 
