@@ -1,5 +1,6 @@
 package com.troystopera.jkode
 
+import com.troystopera.jkode.components.CodeBlock
 import com.troystopera.jkode.control.CtrlType
 import com.troystopera.jkode.exceptions.compile.FunctionReturnException
 import com.troystopera.jkode.exec.MutableOutput

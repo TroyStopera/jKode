@@ -1,5 +1,6 @@
-package com.troystopera.jkode
+package com.troystopera.jkode.components
 
+import com.troystopera.jkode.Component
 import com.troystopera.jkode.control.CtrlObject
 import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Executable
