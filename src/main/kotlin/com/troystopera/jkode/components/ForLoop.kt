@@ -1,7 +1,7 @@
 package com.troystopera.jkode.components
 
+import com.troystopera.jkode.CtrlStmt
 import com.troystopera.jkode.Evaluation
-import com.troystopera.jkode.control.CtrlObject
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
@@ -16,7 +16,7 @@ class ForLoop(
         val afterthought: Assignment
 ) : CodeBlock() {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlObject<*>? {
+    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
         initialization.execute(scope, output, executor)
         while (condition.execute(scope, output, executor).value) {
             val v = super.onExecute(scope, output, executor)
