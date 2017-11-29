@@ -9,18 +9,13 @@ import com.troystopera.jkode.vars.Var
 import com.troystopera.jkode.vars.VarType
 
 class Variable<out T : Var<*>>(
-        type: VarType,
+        type: VarType<T>,
         val name: String
 ) : Evaluation<T>(type) {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): T {
-        val value = scope[name]
-        try {
-            @Suppress("UNCHECKED_CAST")
-            return value as T
-        } catch (e: Exception) {
-            throw TypeCastException(name, varType, value?.varType, e)
-        }
+        val value = varType.castOrNull(scope[name])
+        return value ?: throw TypeCastException(name, varType, value?.varType)
     }
 
 }

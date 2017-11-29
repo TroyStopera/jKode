@@ -1,11 +1,14 @@
 package com.troystopera.jkode.vars
 
-class BooleanVar private constructor(value: Boolean) : Var<Boolean>(VarType.BOOLEAN, value) {
+class BooleanVar private constructor(
+        value: Boolean?
+) : Var<Boolean>(BOOLEAN, value) {
 
     companion object {
 
         val TRUE = BooleanVar(true)
         val FALSE = BooleanVar(false)
+        val NULL = BooleanVar(null)
 
         operator fun get(b: Boolean) = if (b) TRUE else FALSE
 

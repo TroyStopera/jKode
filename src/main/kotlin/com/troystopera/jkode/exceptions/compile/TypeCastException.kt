@@ -6,7 +6,7 @@ import com.troystopera.jkode.vars.VarType
 
 class TypeCastException(
         variable: String,
-        type1: VarType?,
-        type2: VarType?,
+        type1: VarType<*>?,
+        type2: VarType<*>?,
         override val cause: Throwable? = null
 ) : JKodeCompileException(Type.TYPE_CAST, "Variable $variable:$type1 cannot be assigned to $type2")

@@ -1,14 +1,18 @@
 package com.troystopera.jkode.vars
 
 import com.troystopera.jkode.Evaluation
+import com.troystopera.jkode.exceptions.runtime.NullVarException
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
 
-abstract class Var<out T : Any>(
-        type: VarType,
-        open val value: T
+abstract class Var<T : Any>(
+        type: VarType<Var<T>>,
+        private val tValue: T?
 ) : Evaluation<Var<T>>(type) {
+
+    val value: T
+        get() = tValue ?: throw NullVarException()
 
     override fun toString() = value.toString()
 

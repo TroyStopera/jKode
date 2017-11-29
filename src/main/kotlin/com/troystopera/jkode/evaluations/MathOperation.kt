@@ -6,7 +6,7 @@ import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
 import com.troystopera.jkode.vars.Var
 
-class MathOperation<out T : Any, V>(
+class MathOperation<T : Any, V>(
         val type: Type,
         val leftEvaluation: Evaluation<V>,
         val rightEvaluation: Evaluation<V>
