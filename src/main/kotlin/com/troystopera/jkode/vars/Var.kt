@@ -13,6 +13,7 @@ abstract class Var<T : Any>(
 
     val value: T
         get() = tValue ?: throw NullVarException()
+    val isNull = tValue == null
 
     override fun toString() = value.toString()
 

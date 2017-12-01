@@ -11,6 +11,8 @@ open class CodeBlock : Component() {
 
     private val executables = mutableListOf<Executable<*>>()
 
+    fun getExecutables(): List<Executable<*>> = executables
+
     fun add(executable: Executable<*>) = executables.add(executable)
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {

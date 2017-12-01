@@ -31,6 +31,10 @@ class Conditional private constructor(
             branches.add(Branch(condition, codeBlock))
         }
 
+        fun addBranch(branch: Branch) {
+            branches.add(branch)
+        }
+
         fun setElseBlock(codeBlock: CodeBlock?) {
             elseBlock = codeBlock
         }
@@ -39,7 +43,7 @@ class Conditional private constructor(
 
     }
 
-    private data class Branch(
+    data class Branch(
             val condition: Evaluation<BooleanVar>,
             val codeBlock: CodeBlock
     )

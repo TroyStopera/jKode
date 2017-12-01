@@ -9,7 +9,7 @@ import com.troystopera.jkode.vars.VarType
 
 class Assignment(
         val varName: String,
-        private val evaluation: Evaluation<*>
+        val evaluation: Evaluation<*>
 ) : Statement() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =

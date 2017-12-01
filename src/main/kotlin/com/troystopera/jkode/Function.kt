@@ -15,9 +15,7 @@ class Function<out T : Var<*>>(
         val name: String
 ) : Executable<T>() {
 
-    private val body = CodeBlock()
-
-    fun add(executable: Executable<*>) = body.add(executable)
+    val body = CodeBlock()
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): T {
         val value = (body.execute(scope.newChildScope(), output, executor) as? Return<*>)?.data

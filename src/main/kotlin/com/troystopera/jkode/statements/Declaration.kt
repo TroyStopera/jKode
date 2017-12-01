@@ -11,7 +11,7 @@ import com.troystopera.jkode.vars.VarType
 class Declaration<out T : Var<*>>(
         val varType: VarType<T>,
         val varName: String,
-        private val initialValue: Evaluation<T>? = null
+        val initialValue: Evaluation<T>? = null
 ) : Statement() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
