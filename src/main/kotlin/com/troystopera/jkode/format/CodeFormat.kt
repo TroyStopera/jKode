@@ -1,6 +1,7 @@
 package com.troystopera.jkode.format
 
 import com.troystopera.jkode.*
+import com.troystopera.jkode.Function
 import com.troystopera.jkode.evaluations.Comparison
 import com.troystopera.jkode.evaluations.MathOperation
 import com.troystopera.jkode.exec.Executable

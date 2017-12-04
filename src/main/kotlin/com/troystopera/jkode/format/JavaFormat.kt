@@ -6,6 +6,7 @@ import com.troystopera.jkode.control.Break
 import com.troystopera.jkode.control.Continue
 import com.troystopera.jkode.control.Return
 import com.troystopera.jkode.evaluations.*
+import com.troystopera.jkode.Function
 import com.troystopera.jkode.statements.Assignment
 import com.troystopera.jkode.statements.Declaration
 import com.troystopera.jkode.vars.ArrayType
