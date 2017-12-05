@@ -16,8 +16,8 @@ class MathOperation<T : Any, V>(
         val left = leftEvaluation.execute(scope, output, executor)
         val right = rightEvaluation.execute(scope, output, executor)
         return when (type) {
-            MathOperation.Type.PLUS -> left + right
-            MathOperation.Type.MINUS -> left - right
+            MathOperation.Type.ADD -> left + right
+            MathOperation.Type.SUBTRACT -> left - right
             MathOperation.Type.DIVIDE -> left / right
             MathOperation.Type.MULTIPLY -> left * right
             MathOperation.Type.MODULO -> left % right
@@ -25,7 +25,7 @@ class MathOperation<T : Any, V>(
     }
 
     enum class Type {
-        PLUS, MINUS, DIVIDE, MULTIPLY, MODULO
+        ADD, SUBTRACT, DIVIDE, MULTIPLY, MODULO
     }
 
     interface Operable<T> where T : JVar<*>, T : Operable<T> {

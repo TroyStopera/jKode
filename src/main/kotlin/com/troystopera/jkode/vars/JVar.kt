@@ -7,9 +7,11 @@ import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
 
 abstract class JVar<T : Any>(
-        type: VarType<JVar<T>>,
+        val varType: VarType<JVar<T>>,
         private val tValue: T?
-) : Evaluation<JVar<T>>(type) {
+) {
+
+    abstract val eval: Evaluation<JVar<T>>
 
     val value: T
         get() = tValue ?: throw NullVarException()
@@ -20,7 +22,5 @@ abstract class JVar<T : Any>(
     override fun equals(other: Any?) = (other as? JVar<*>)?.value?.equals(value) == true
 
     override fun hashCode() = value.hashCode()
-
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = this
 
 }

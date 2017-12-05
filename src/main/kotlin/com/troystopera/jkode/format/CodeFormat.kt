@@ -36,8 +36,8 @@ abstract class CodeFormat {
     }
 
     open fun formatOperationType(type: MathOperation.Type): String = when (type) {
-        MathOperation.Type.PLUS -> "+"
-        MathOperation.Type.MINUS -> "-"
+        MathOperation.Type.ADD -> "+"
+        MathOperation.Type.SUBTRACT -> "-"
         MathOperation.Type.DIVIDE -> "/"
         MathOperation.Type.MULTIPLY -> "*"
         MathOperation.Type.MODULO -> "%"
