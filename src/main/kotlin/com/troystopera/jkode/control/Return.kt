@@ -2,12 +2,8 @@ package com.troystopera.jkode.control
 
 import com.troystopera.jkode.CtrlStmt
 import com.troystopera.jkode.Evaluation
-import com.troystopera.jkode.exec.MutableOutput
-import com.troystopera.jkode.exec.Executable
-import com.troystopera.jkode.exec.Executor
-import com.troystopera.jkode.exec.Scope
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 
-class Return<T : Var<*>>(
+class Return<T : JVar<*>>(
         evaluation: Evaluation<T>
 ) : CtrlStmt<Evaluation<T>>(evaluation)

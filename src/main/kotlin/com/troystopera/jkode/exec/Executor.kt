@@ -3,7 +3,7 @@ package com.troystopera.jkode.exec
 import com.troystopera.jkode.exceptions.JKodeCompileException
 import com.troystopera.jkode.exceptions.JKodeRuntimeException
 import com.troystopera.jkode.exec.override.ExecutionOverride
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 
 open class Executor {
 
@@ -32,7 +32,7 @@ open class Executor {
             exceptionHandler?.handleRuntimeException(e)
         }
 
-        if (result is Var<*>)
+        if (result is JVar<*>)
             output.setReturn(result)
 
         return output

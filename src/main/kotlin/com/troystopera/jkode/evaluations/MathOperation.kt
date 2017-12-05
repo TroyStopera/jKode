@@ -4,13 +4,13 @@ import com.troystopera.jkode.Evaluation
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 
 class MathOperation<T : Any, V>(
         val type: Type,
         val leftEvaluation: Evaluation<V>,
         val rightEvaluation: Evaluation<V>
-) : Evaluation<V>(leftEvaluation.varType) where V : Var<T>, V : MathOperation.Operable<V> {
+) : Evaluation<V>(leftEvaluation.varType) where V : JVar<T>, V : MathOperation.Operable<V> {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): V {
         val left = leftEvaluation.execute(scope, output, executor)
@@ -28,7 +28,7 @@ class MathOperation<T : Any, V>(
         PLUS, MINUS, DIVIDE, MULTIPLY, MODULO
     }
 
-    interface Operable<T> where T : Var<*>, T : Operable<T> {
+    interface Operable<T> where T : JVar<*>, T : Operable<T> {
         operator fun plus(operable: T): T
         operator fun minus(operable: T): T
         operator fun div(operable: T): T

@@ -7,10 +7,10 @@ import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Executable
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.Scope
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 import com.troystopera.jkode.vars.VarType
 
-class Function<out T : Var<*>>(
+class JFunction<out T : JVar<*>>(
         val returnType: VarType<T>,
         val name: String
 ) : Executable<T>() {

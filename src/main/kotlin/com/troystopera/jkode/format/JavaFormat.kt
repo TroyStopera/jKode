@@ -6,12 +6,12 @@ import com.troystopera.jkode.control.Break
 import com.troystopera.jkode.control.Continue
 import com.troystopera.jkode.control.Return
 import com.troystopera.jkode.evaluations.*
-import com.troystopera.jkode.Function
+import com.troystopera.jkode.JFunction
 import com.troystopera.jkode.statements.Assignment
 import com.troystopera.jkode.statements.Declaration
 import com.troystopera.jkode.vars.ArrayType
 import com.troystopera.jkode.vars.*
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 import com.troystopera.jkode.vars.VarType
 
 object JavaFormat : CodeFormat() {
@@ -66,16 +66,16 @@ object JavaFormat : CodeFormat() {
                 " ${formatOperationType(evaluation.type)} " +
                 formatEvaluation(evaluation.rightEvaluation)
 
-        is Var<*> -> formatVar(evaluation, indent)
+        is JVar<*> -> formatVar(evaluation, indent)
 
         is Variable<*> -> evaluation.name
 
         else -> "Unknown Evaluation ${evaluation::class.simpleName}"
     }
 
-    override fun formatFunction(function: Function<*>, indent: String): String =
-            "${indent}public ${formatVarType(function.returnType)} ${function.name}() {\n" +
-                    formatCodeBlock(function.body, indent + TAB) + "\n$indent}"
+    override fun formatFunction(JFunction: JFunction<*>, indent: String): String =
+            "${indent}public ${formatVarType(JFunction.returnType)} ${JFunction.name}() {\n" +
+                    formatCodeBlock(JFunction.body, indent + TAB) + "\n$indent}"
 
     override fun formatStatement(statement: Statement, indent: String): String = indent + when (statement) {
         is Assignment -> "${statement.varName} = ${formatEvaluation(statement.evaluation)}"
@@ -86,7 +86,7 @@ object JavaFormat : CodeFormat() {
         else -> "Unknown Statement ${statement::class.simpleName}"
     } + ";"
 
-    override fun formatVar(v: Var<*>?, indent: String): String = indent + when {
+    override fun formatVar(v: JVar<*>?, indent: String): String = indent + when {
         v == null || v.isNull || v is UnitVar -> "null"
         v is StringVar -> v.value
         v is IntVar -> "\"${v.value}\""

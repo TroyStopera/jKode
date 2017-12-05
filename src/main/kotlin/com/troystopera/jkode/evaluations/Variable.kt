@@ -5,10 +5,10 @@ import com.troystopera.jkode.exceptions.compile.TypeCastException
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 import com.troystopera.jkode.vars.VarType
 
-class Variable<out T : Var<*>>(
+class Variable<out T : JVar<*>>(
         type: VarType<T>,
         val name: String
 ) : Evaluation<T>(type) {

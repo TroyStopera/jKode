@@ -1,11 +1,11 @@
 package com.troystopera.jkode.format
 
 import com.troystopera.jkode.*
-import com.troystopera.jkode.Function
+import com.troystopera.jkode.JFunction
 import com.troystopera.jkode.evaluations.Comparison
 import com.troystopera.jkode.evaluations.MathOperation
 import com.troystopera.jkode.exec.Executable
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 import com.troystopera.jkode.vars.VarType
 
 abstract class CodeFormat {
@@ -16,11 +16,11 @@ abstract class CodeFormat {
 
     abstract fun formatEvaluation(evaluation: Evaluation<*>, indent: String = ""): String
 
-    abstract fun formatFunction(function: Function<*>, indent: String = ""): String
+    abstract fun formatFunction(JFunction: JFunction<*>, indent: String = ""): String
 
     abstract fun formatStatement(statement: Statement, indent: String = ""): String
 
-    abstract fun formatVar(v: Var<*>?, indent: String = ""): String
+    abstract fun formatVar(v: JVar<*>?, indent: String = ""): String
 
     abstract fun formatVarType(type: VarType<*>, indent: String = ""): String
 
@@ -29,9 +29,9 @@ abstract class CodeFormat {
         is Component -> formatComponent(executable, indent)
         is CtrlStmt<*> -> formatControlStmt(executable, indent)
         is Evaluation<*> -> formatEvaluation(executable, indent)
-        is Function<*> -> formatFunction(executable, indent)
+        is JFunction<*> -> formatFunction(executable, indent)
         is Statement -> formatStatement(executable, indent)
-        is Var<*> -> formatVar(executable, indent)
+        is JVar<*> -> formatVar(executable, indent)
         else -> "${indent}Unknown executable ${executable::class.simpleName}"
     }
 

@@ -2,7 +2,7 @@ package com.troystopera.jkode.vars
 
 import com.troystopera.jkode.util.Caster
 
-sealed class VarType<out T : Var<*>>(
+sealed class VarType<out T : JVar<*>>(
         val name: String,
         val NULL: T
 ) {
@@ -17,11 +17,11 @@ sealed class VarType<out T : Var<*>>(
 
 }
 
-abstract class ArrayType<T : Var<*>>(var elementType: VarType<*>?, name: String, NULL: ArrayVar<T>) : VarType<ArrayVar<T>>(name, NULL)
+abstract class ArrayType<T : JVar<*>>(var elementType: VarType<*>?, name: String, NULL: ArrayVar<T>) : VarType<ArrayVar<T>>(name, NULL)
 
-object ARRAY : ArrayType<Var<*>>(null, "Array", ArrayVar.NULL) {
+object ARRAY : ArrayType<JVar<*>>(null, "Array", ArrayVar.NULL) {
     //TODO setup array type cache
-    operator fun <T : Var<*>> get(type: VarType<T>): ArrayType<T> =
+    operator fun <T : JVar<*>> get(type: VarType<T>): ArrayType<T> =
             object : ArrayType<T>(type, type.name + "Array", ArrayVar(type, null)) {}
 }
 

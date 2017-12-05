@@ -3,12 +3,12 @@ package com.troystopera.jkode.exec
 import com.troystopera.jkode.exceptions.JKodeCompileException
 import com.troystopera.jkode.exceptions.JKodeException
 import com.troystopera.jkode.exceptions.JKodeRuntimeException
-import com.troystopera.jkode.vars.Var
+import com.troystopera.jkode.vars.JVar
 
 class MutableOutput : Output {
 
     private val console = mutableListOf<String>()
-    private var returnVar: Var<*>? = null
+    private var returnVar: JVar<*>? = null
     private var compileException: JKodeCompileException? = null
     private var runtimeException: JKodeRuntimeException? = null
 
@@ -37,7 +37,7 @@ class MutableOutput : Output {
         }
     }
 
-    fun setReturn(retVar: Var<*>?) {
+    fun setReturn(retVar: JVar<*>?) {
         returnVar = retVar
     }
 

@@ -2,7 +2,7 @@ package com.troystopera.jkode.vars
 
 class BooleanVar private constructor(
         value: Boolean?
-) : Var<Boolean>(BOOLEAN, value) {
+) : JVar<Boolean>(BOOLEAN, value) {
 
     companion object {
 

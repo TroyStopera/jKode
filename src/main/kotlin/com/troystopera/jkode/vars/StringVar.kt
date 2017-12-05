@@ -2,7 +2,7 @@ package com.troystopera.jkode.vars
 
 class StringVar private constructor(
         value: String?
-) : Var<String>(STRING, value) {
+) : JVar<String>(STRING, value) {
 
     companion object {
         val NULL = StringVar(null)
