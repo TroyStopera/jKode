@@ -9,12 +9,12 @@ import com.troystopera.jkode.vars.*
 
 class ArrayLength(
         val arrayName: String
-) : Evaluation<IntVar>(INT) {
+) : Evaluation<IntVar>(VarType.INT) {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): IntVar {
         val raw = scope[arrayName]
         val array = raw as? ArrayVar<*>
-        return IntVar[array?.value?.size ?: throw TypeCastException(arrayName, raw.varType, ARRAY)]
+        return IntVar[array?.value?.size ?: throw TypeCastException(arrayName, raw.varType, VarType.ARRAY)]
     }
 
 }

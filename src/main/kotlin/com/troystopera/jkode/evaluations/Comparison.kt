@@ -4,15 +4,15 @@ import com.troystopera.jkode.Evaluation
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
-import com.troystopera.jkode.vars.BOOLEAN
 import com.troystopera.jkode.vars.BooleanVar
 import com.troystopera.jkode.vars.JVar
+import com.troystopera.jkode.vars.VarType
 
 class Comparison<T>(
         val type: Type,
         val leftEvaluation: Evaluation<T>,
         val rightEvaluation: Evaluation<T>
-) : Evaluation<BooleanVar>(BOOLEAN) where T : JVar<*>, T : Comparable<T> {
+) : Evaluation<BooleanVar>(VarType.BOOLEAN) where T : JVar<*>, T : Comparable<T> {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): BooleanVar {
         val left = leftEvaluation.execute(scope, output, executor)

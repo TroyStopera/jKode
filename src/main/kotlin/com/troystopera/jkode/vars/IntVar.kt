@@ -4,7 +4,7 @@ import com.troystopera.jkode.evaluations.MathOperation
 
 class IntVar private constructor(
         value: Int?
-) : Comparable<IntVar>, MathOperation.Operable<IntVar>, JVar<Int>(INT, value) {
+) : Comparable<IntVar>, MathOperation.Operable<IntVar>, JVar<Int>(VarType.INT, value) {
 
     override fun plus(operable: IntVar) = IntVar[value + operable.value]
 

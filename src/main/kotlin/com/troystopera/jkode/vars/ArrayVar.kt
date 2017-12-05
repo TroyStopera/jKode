@@ -5,7 +5,7 @@ import com.troystopera.jkode.exceptions.runtime.ArrayIndexException
 open class ArrayVar<T : JVar<*>>(
         val arrayVarType: VarType<T>,
         array: Array<T?>?
-) : JVar<Array<T?>>(ARRAY[arrayVarType], array) {
+) : JVar<Array<T?>>(VarType.ARRAY[arrayVarType], array) {
 
     operator fun get(index: Int): T = when {
         index >= value.size -> throw ArrayIndexException(value.size, index)
@@ -18,7 +18,7 @@ open class ArrayVar<T : JVar<*>>(
     }
 
     companion object {
-        val NULL = ArrayVar<JVar<*>>(ARRAY, null)
+        val NULL = ArrayVar<JVar<*>>(VarType.ARRAY, null)
     }
 
 }

@@ -104,11 +104,11 @@ object JavaFormat : CodeFormat() {
     }
 
     override fun formatVarType(type: VarType<*>, indent: String): String = indent + when (type) {
-        is ArrayType<*> -> formatVarType(type.elementType ?: UNIT) + "[]"
-        UNIT -> "void"
-        BOOLEAN -> "boolean"
-        INT -> "int"
-        STRING -> "String"
+        is ArrayType<*> -> formatVarType(type.elementType) + "[]"
+        VarType.UNIT -> "void"
+        VarType.BOOLEAN -> "boolean"
+        VarType.INT -> "int"
+        VarType.STRING -> "String"
     }
 
     private fun formatConditionalBranch(branch: Conditional.Branch, startIndent: String, endIndent: String): String =
