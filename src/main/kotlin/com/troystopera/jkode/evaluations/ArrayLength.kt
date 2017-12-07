@@ -8,13 +8,10 @@ import com.troystopera.jkode.exec.Scope
 import com.troystopera.jkode.vars.*
 
 class ArrayLength(
-        val arrayName: String
+        val array: Evaluation<ArrayVar<*>>
 ) : Evaluation<IntVar>(VarType.INT) {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): IntVar {
-        val raw = scope[arrayName]
-        val array = raw as? ArrayVar<*>
-        return IntVar[array?.value?.size ?: throw TypeCastException(arrayName, raw.varType, VarType.ARRAY)]
-    }
+    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
+            IntVar[array.execute(scope, output, executor).value.size]
 
 }

@@ -57,15 +57,15 @@ object JavaFormat : CodeFormat() {
     override fun formatEvaluation(evaluation: Evaluation<*>, indent: String): String = indent + when (evaluation) {
         is ArrayAccess<*> -> "${formatEvaluation(evaluation.array)}[${formatEvaluation(evaluation.index)}]"
 
-        is ArrayLength -> "${evaluation.arrayName}.length"
+        is ArrayLength -> "${formatEvaluation(evaluation.array)}.length"
 
-        is Comparison<*> -> formatEvaluation(evaluation.leftEvaluation) +
+        is Comparison<*> -> formatEvaluation(evaluation.leftValue) +
                 " ${formatComparisonType(evaluation.type)} " +
-                formatEvaluation(evaluation.rightEvaluation)
+                formatEvaluation(evaluation.rightValue)
 
-        is MathOperation<*, *> -> formatEvaluation(evaluation.leftEvaluation) +
+        is MathOperation<*, *> -> formatEvaluation(evaluation.leftValue) +
                 " ${formatOperationType(evaluation.type)} " +
-                formatEvaluation(evaluation.rightEvaluation)
+                formatEvaluation(evaluation.rightValue)
 
         is JVar<*> -> formatVar(evaluation, indent)
 
@@ -79,7 +79,7 @@ object JavaFormat : CodeFormat() {
                     formatCodeBlock(JFunction.body, indent + TAB) + "\n$indent}"
 
     override fun formatStatement(statement: Statement, indent: String): String = indent + when (statement) {
-        is Assignment -> "${statement.varName} = ${formatEvaluation(statement.evaluation)}"
+        is Assignment -> "${statement.varName} = ${formatEvaluation(statement.value)}"
 
         is Declaration<*> -> formatVarType(statement.varType) + " ${statement.varName}" +
                 if (statement.initialValue != null) " ${formatEvaluation(statement.initialValue)}" else ""

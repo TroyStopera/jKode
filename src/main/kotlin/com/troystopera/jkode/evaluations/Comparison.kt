@@ -10,13 +10,13 @@ import com.troystopera.jkode.vars.VarType
 
 class Comparison<T>(
         val type: Type,
-        val leftEvaluation: Evaluation<T>,
-        val rightEvaluation: Evaluation<T>
+        val leftValue: Evaluation<T>,
+        val rightValue: Evaluation<T>
 ) : Evaluation<BooleanVar>(VarType.BOOLEAN) where T : JVar<*>, T : Comparable<T> {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): BooleanVar {
-        val left = leftEvaluation.execute(scope, output, executor)
-        val right = rightEvaluation.execute(scope, output, executor)
+        val left = leftValue.execute(scope, output, executor)
+        val right = rightValue.execute(scope, output, executor)
         return when (type) {
             Comparison.Type.LESS_THAN -> BooleanVar[(left < right)]
             Comparison.Type.LESS_THAN_EQUAL_TO -> BooleanVar[(left <= right)]
@@ -28,7 +28,12 @@ class Comparison<T>(
     }
 
     enum class Type {
-        LESS_THAN, LESS_THAN_EQUAL_TO, EQUAL_TO, NOT_EQUAL_TO, GREATER_THEN_EQUAL_TO, GREATER_THAN
+        LESS_THAN,
+        LESS_THAN_EQUAL_TO,
+        EQUAL_TO,
+        NOT_EQUAL_TO,
+        GREATER_THEN_EQUAL_TO,
+        GREATER_THAN
     }
 
 }

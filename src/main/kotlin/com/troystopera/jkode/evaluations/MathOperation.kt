@@ -8,13 +8,13 @@ import com.troystopera.jkode.vars.JVar
 
 class MathOperation<T : Any, V>(
         val type: Type,
-        val leftEvaluation: Evaluation<V>,
-        val rightEvaluation: Evaluation<V>
-) : Evaluation<V>(leftEvaluation.varType) where V : JVar<T>, V : MathOperation.Operable<V> {
+        val leftValue: Evaluation<V>,
+        val rightValue: Evaluation<V>
+) : Evaluation<V>(leftValue.varType) where V : JVar<T>, V : MathOperation.Operable<V> {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): V {
-        val left = leftEvaluation.execute(scope, output, executor)
-        val right = rightEvaluation.execute(scope, output, executor)
+        val left = leftValue.execute(scope, output, executor)
+        val right = rightValue.execute(scope, output, executor)
         return when (type) {
             MathOperation.Type.ADD -> left + right
             MathOperation.Type.SUBTRACT -> left - right
@@ -25,7 +25,11 @@ class MathOperation<T : Any, V>(
     }
 
     enum class Type {
-        ADD, SUBTRACT, DIVIDE, MULTIPLY, MODULO
+        ADD,
+        SUBTRACT,
+        DIVIDE,
+        MULTIPLY,
+        MODULO
     }
 
     interface Operable<T> where T : JVar<*>, T : Operable<T> {
