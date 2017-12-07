@@ -7,6 +7,7 @@ import com.troystopera.jkode.control.Continue
 import com.troystopera.jkode.control.Return
 import com.troystopera.jkode.evaluations.*
 import com.troystopera.jkode.JFunction
+import com.troystopera.jkode.statements.ArrayAssign
 import com.troystopera.jkode.statements.Assignment
 import com.troystopera.jkode.statements.Declaration
 import com.troystopera.jkode.vars.ArrayType
@@ -54,7 +55,7 @@ object JavaFormat : CodeFormat() {
     } + ";"
 
     override fun formatEvaluation(evaluation: Evaluation<*>, indent: String): String = indent + when (evaluation) {
-        is ArrayAccess<*> -> "${evaluation.arrayName}[${formatEvaluation(evaluation.index)}]"
+        is ArrayAccess<*> -> "${formatEvaluation(evaluation.array)}[${formatEvaluation(evaluation.index)}]"
 
         is ArrayLength -> "${evaluation.arrayName}.length"
 
@@ -82,6 +83,9 @@ object JavaFormat : CodeFormat() {
 
         is Declaration<*> -> formatVarType(statement.varType) + " ${statement.varName}" +
                 if (statement.initialValue != null) " ${formatEvaluation(statement.initialValue)}" else ""
+
+        is ArrayAssign<*> -> "${formatEvaluation(statement.array)}[${formatEvaluation(statement.index)}] = " +
+                formatEvaluation(statement.value)
 
         else -> "Unknown Statement ${statement::class.simpleName}"
     } + ";"
