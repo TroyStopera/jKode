@@ -18,14 +18,10 @@ class Conditional private constructor(
         return branchTaken?.codeBlock?.execute(scope, output, executor) ?: elseBlock?.execute(scope, output, executor)
     }
 
-    class Builder(condition: Evaluation<BooleanVar>, codeBlock: CodeBlock) {
+    class Builder {
 
         private val branches = mutableListOf<Branch>()
         private var elseBlock: CodeBlock? = null
-
-        init {
-            branches.add(Branch(condition, codeBlock))
-        }
 
         fun addBranch(condition: Evaluation<BooleanVar>, codeBlock: CodeBlock) {
             branches.add(Branch(condition, codeBlock))
