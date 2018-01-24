@@ -6,25 +6,40 @@ import com.troystopera.jkode.evaluations.Comparison
 import com.troystopera.jkode.evaluations.MathOperation
 import com.troystopera.jkode.exec.Executable
 import com.troystopera.jkode.vars.JVar
+import com.troystopera.jkode.vars.JVarEvaluation
 import com.troystopera.jkode.vars.VarType
 
 abstract class CodeFormat {
 
-    abstract fun formatComponent(component: Component, indent: String = ""): String
+    abstract fun formatComponent(component: Component, indent: String): String
 
-    abstract fun formatControlStmt(ctrlStmt: CtrlStmt<*>, indent: String = ""): String
+    fun formatComponent(component: Component) = formatComponent(component, "")
 
-    abstract fun formatEvaluation(evaluation: Evaluation<*>, indent: String = ""): String
+    abstract fun formatControlStmt(ctrlStmt: CtrlStmt<*>, indent: String): String
 
-    abstract fun formatFunction(JFunction: JFunction<*>, indent: String = ""): String
+    fun formatControlStmt(ctrlStmt: CtrlStmt<*>) = formatControlStmt(ctrlStmt, "")
 
-    abstract fun formatStatement(statement: Statement, indent: String = ""): String
+    abstract fun formatEvaluation(evaluation: Evaluation<*>, indent: String): String
 
-    abstract fun formatVar(v: JVar<*>?, indent: String = ""): String
+    fun formatEvaluation(evaluation: Evaluation<*>) = formatEvaluation(evaluation, "")
+
+    abstract fun formatFunction(JFunction: JFunction<*>, indent: String): String
+
+    fun formatFunction(JFunction: JFunction<*>) = formatFunction(JFunction, "")
+
+    abstract fun formatStatement(statement: Statement, indent: String): String
+
+    fun formatStatement(statement: Statement) = formatStatement(statement, "")
+
+    abstract fun formatVar(v: JVar<*>?, indent: String): String
+
+    fun formatVar(v: JVar<*>?) = formatVar(v, "")
 
     abstract fun formatVarType(type: VarType<*>, indent: String = ""): String
 
-    open fun format(executable: Executable<*>, indent: String = ""): String = when (executable) {
+    fun formatVarType(type: VarType<*>) = formatVarType(type, "")
+
+    fun format(executable: Executable<*>, indent: String): String = when (executable) {
         is BlankLine -> "\n"
         is Component -> formatComponent(executable, indent)
         is CtrlStmt<*> -> formatControlStmt(executable, indent)
@@ -32,8 +47,11 @@ abstract class CodeFormat {
         is JFunction<*> -> formatFunction(executable, indent)
         is Statement -> formatStatement(executable, indent)
         is JVar<*> -> formatVar(executable, indent)
+        is JVarEvaluation<*> -> formatVar(executable.jVar, indent)
         else -> "${indent}Unknown executable ${executable::class.simpleName}"
     }
+
+    fun format(executable: Executable<*>) = format(executable, "")
 
     open fun formatOperationType(type: MathOperation.Type): String = when (type) {
         MathOperation.Type.ADD -> "+"

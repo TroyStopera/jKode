@@ -1,10 +1,6 @@
 package com.troystopera.jkode.vars
 
-import com.troystopera.jkode.Evaluation
 import com.troystopera.jkode.evaluations.MathOperation
-import com.troystopera.jkode.exec.Executor
-import com.troystopera.jkode.exec.MutableOutput
-import com.troystopera.jkode.exec.Scope
 
 class IntVar private constructor(
         value: Int?
@@ -12,9 +8,7 @@ class IntVar private constructor(
 
     override fun getVarType(): VarType<IntVar> = VarType.INT
 
-    override fun asEval(): Evaluation<IntVar> = object : Evaluation<IntVar>(getVarType()) {
-        override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = this@IntVar
-    }
+    override fun asEval(): JVarEvaluation<IntVar> = JVarEvaluation(this, getVarType())
 
     override fun plus(operable: IntVar) = IntVar[value + operable.value]
 

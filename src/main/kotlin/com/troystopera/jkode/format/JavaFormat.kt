@@ -69,6 +69,8 @@ object JavaFormat : CodeFormat() {
 
         is JVar<*> -> formatVar(evaluation, indent)
 
+        is JVarEvaluation<*> -> formatVar(evaluation.jVar, indent)
+
         is Variable<*> -> evaluation.name
 
         else -> "Unknown Evaluation ${evaluation::class.simpleName}"
@@ -92,8 +94,8 @@ object JavaFormat : CodeFormat() {
 
     override fun formatVar(v: JVar<*>?, indent: String): String = indent + when {
         v == null || v.isNull || v is UnitVar -> "null"
-        v is StringVar -> v.value
-        v is IntVar -> "\"${v.value}\""
+        v is IntVar -> v.value
+        v is StringVar -> "\"${v.value}\""
         v is BooleanVar -> if (v.value) "true" else "false"
         v is ArrayVar<*> -> {
             var string = "{"
