@@ -18,9 +18,10 @@ class JFunction<out T : JVar<*>>(
     val body = CodeBlock()
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): T {
-        val value = (body.execute(scope.newChildScope(), output, executor) as? Return<*>)?.data
+        val funScope = scope.newChildScope()
+        val value = (body.execute(funScope, output, executor) as? Return<*>)?.data?.execute(funScope, output, executor)
                 ?: throw FunctionReturnException(this)
-        return returnType.castOrNull(value) ?: throw FunctionReturnException(this, value.varType)
+        return returnType.castOrNull(value) ?: throw FunctionReturnException(this, returnType, value.getVarType())
     }
 
 }

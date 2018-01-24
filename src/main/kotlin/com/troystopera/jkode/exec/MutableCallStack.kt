@@ -17,7 +17,8 @@ class MutableCallStack : CallStack() {
     }
 
     fun endCall() {
-        base = callers.removeAt(0)
+        base = if (callers.isEmpty()) ""
+        else callers.removeAt(0)
     }
 
 }
