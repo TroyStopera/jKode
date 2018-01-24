@@ -23,21 +23,21 @@ This code will create and execute a basic function with a for loop and int retur
 val func = JFunction(VarType.INT, "example")
 
 //add an int var with initial value of 0 and a blank line
-func.body.add(Declaration(VarType.INT, "data", IntVar[0].eval))
+func.body.add(Declaration(VarType.INT, "data", IntVar[0].asEval()))
 func.body.add(BlankLine)
 
 //create loop declaration 'int i = 0'
 val declaration = Declaration(
   VarType.INT, /* variable type */
   "i", /* variable name */
-  IntVar[0].eval /* initial value */
+  IntVar[0].asEval() /* initial value */
 )
         
 //create loop condition 'i < 10'
 val condition = Comparison(
   Comparison.Type.LESS_THAN, /* comparison operator */
   Variable(VarType.INT, "i"), /* left side of comparison is variable i */
-  IntVar[10].eval /* right side is int literal 10 */
+  IntVar[10].asEval() /* right side is int literal 10 */
 )
         
 //create loop increment 'i = i + 1'
@@ -46,7 +46,7 @@ val increment = Assignment(
   MathOperation( /* assigning i to the result of a math operation */
     MathOperation.Type.ADD, /* math operator */
     Variable(VarType.INT, "i"), /* left side of operation */
-    IntVar[1].eval /* right side of operation */
+    IntVar[1].asEval() /* right side of operation */
   )
 )
 
