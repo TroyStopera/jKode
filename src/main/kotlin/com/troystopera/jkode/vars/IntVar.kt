@@ -8,9 +8,11 @@ import com.troystopera.jkode.exec.Scope
 
 class IntVar private constructor(
         value: Int?
-) : Comparable<IntVar>, MathOperation.Operable<IntVar>, JVar<Int>(VarType.INT, value) {
+) : Comparable<IntVar>, MathOperation.Operable<IntVar>, JVar<Int>(value) {
 
-    override val eval: Evaluation<IntVar> = object : Evaluation<IntVar>(VarType.INT) {
+    override fun getVarType(): VarType<IntVar> = VarType.INT
+
+    override fun asEval(): Evaluation<IntVar> = object : Evaluation<IntVar>(getVarType()) {
         override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = this@IntVar
     }
 

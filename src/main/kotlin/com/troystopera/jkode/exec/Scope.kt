@@ -15,8 +15,8 @@ class Scope(val parent: Scope? = null, private val functions: HashMap<String, JF
     fun <T : JVar<*>> declare(type: VarType<T>, name: String, value: T?) {
         if (names.containsKey(name))
             throw ConflictingDeclarationException(name)
-        else if (value != null && type != value.varType)
-            throw TypeCastException(name, type, value.varType)
+        else if (value != null && type != value.getVarType())
+            throw TypeCastException(name, type, value.getVarType())
 
         val map = values[type] ?: {
             val map = hashMapOf<String, JVar<*>?>()
@@ -30,7 +30,7 @@ class Scope(val parent: Scope? = null, private val functions: HashMap<String, JF
 
     fun assign(name: String, value: JVar<*>?) {
         if (names.containsKey(name)) {
-            values[value?.varType]?.put(name, value) ?: throw TypeCastException(name, names[name], value?.varType)
+            values[value?.getVarType()]?.put(name, value) ?: throw TypeCastException(name, names[name], value?.getVarType())
         } else {
             parent?.assign(name, value) ?: throw UnknownTokenException(name)
         }

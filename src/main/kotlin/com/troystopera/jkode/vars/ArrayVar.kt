@@ -9,9 +9,11 @@ import com.troystopera.jkode.exec.Scope
 open class ArrayVar<T : JVar<*>>(
         val arrayVarType: VarType<T>,
         array: Array<T?>?
-) : JVar<Array<T?>>(VarType.ARRAY[arrayVarType], array) {
+) : JVar<Array<T?>>(array) {
 
-    override val eval: Evaluation<ArrayVar<T>> = object : Evaluation<ArrayVar<T>>(VarType.ARRAY[arrayVarType]) {
+    override fun getVarType(): VarType<ArrayVar<T>> = VarType.ARRAY[arrayVarType]
+
+    override fun asEval(): Evaluation<ArrayVar<T>> = object : Evaluation<ArrayVar<T>>(getVarType()) {
         override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = this@ArrayVar
     }
 
@@ -26,7 +28,7 @@ open class ArrayVar<T : JVar<*>>(
     }
 
     companion object {
-        val NULL = ArrayVar<JVar<*>>(VarType.ARRAY, null)
+        val NULL = ArrayVar<JVar<*>>(VarType.UNIT, null)
     }
 
 }

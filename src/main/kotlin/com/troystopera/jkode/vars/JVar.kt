@@ -2,16 +2,14 @@ package com.troystopera.jkode.vars
 
 import com.troystopera.jkode.Evaluation
 import com.troystopera.jkode.exceptions.runtime.NullVarException
-import com.troystopera.jkode.exec.Executor
-import com.troystopera.jkode.exec.MutableOutput
-import com.troystopera.jkode.exec.Scope
 
 abstract class JVar<T : Any>(
-        val varType: VarType<JVar<T>>,
         private val tValue: T?
 ) {
 
-    abstract val eval: Evaluation<JVar<T>>
+    abstract fun getVarType(): VarType<JVar<T>>
+
+    abstract fun asEval(): Evaluation<JVar<T>>
 
     val value: T
         get() = tValue ?: throw NullVarException()

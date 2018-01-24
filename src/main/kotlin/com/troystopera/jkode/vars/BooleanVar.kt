@@ -7,9 +7,11 @@ import com.troystopera.jkode.exec.Scope
 
 class BooleanVar private constructor(
         value: Boolean?
-) : JVar<Boolean>(VarType.BOOLEAN, value) {
+) : JVar<Boolean>(value) {
 
-    override val eval: Evaluation<BooleanVar> = object : Evaluation<BooleanVar>(VarType.BOOLEAN) {
+    override fun getVarType(): VarType<BooleanVar> = VarType.BOOLEAN
+
+    override fun asEval(): Evaluation<BooleanVar> = object : Evaluation<BooleanVar>(getVarType()) {
         override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = this@BooleanVar
     }
 
