@@ -9,39 +9,39 @@ import com.troystopera.jkode.exec.Scope
 import com.troystopera.jkode.vars.BooleanVar
 
 class Conditional private constructor(
-        val branches: Array<Branch>,
-        val elseBlock: CodeBlock?
+        val branches: List<Branch>,
+        val elseBranch: Branch?
 ) : Component() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
         val branchTaken = branches.firstOrNull { it.condition.execute(scope, output, executor).value }
-        return branchTaken?.codeBlock?.execute(scope, output, executor) ?: elseBlock?.execute(scope, output, executor)
+        return branchTaken?.execute(scope, output, executor) ?: elseBranch?.execute(scope, output, executor)
     }
 
     class Builder {
 
         private val branches = mutableListOf<Branch>()
-        private var elseBlock: CodeBlock? = null
-
-        fun addBranch(condition: Evaluation<BooleanVar>, codeBlock: CodeBlock) {
-            branches.add(Branch(condition, codeBlock))
-        }
+        private var elseBranch: Branch? = null
 
         fun addBranch(branch: Branch) {
             branches.add(branch)
         }
 
         fun setElseBlock(codeBlock: CodeBlock?) {
-            elseBlock = codeBlock
+            elseBranch = if (codeBlock != null) Branch(BooleanVar.TRUE.asEval(), codeBlock)
+            else null
         }
 
-        fun build() = Conditional(branches.toTypedArray(), elseBlock)
+        fun build() = Conditional(branches, elseBranch)
 
     }
 
-    data class Branch(
-            val condition: Evaluation<BooleanVar>,
-            val codeBlock: CodeBlock
-    )
+    data class Branch(val condition: Evaluation<BooleanVar>) : CodeBlock() {
+
+        internal constructor(condition: Evaluation<BooleanVar>, codeBlock: CodeBlock) : this(condition) {
+            codeBlock.getExecutables().forEach { add(it) }
+        }
+
+    }
 
 }

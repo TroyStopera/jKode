@@ -25,8 +25,8 @@ object JavaFormat : CodeFormat() {
                 string += formatConditionalBranch(branches.next(), indent, indent)
             while (branches.hasNext())
                 string += " else ${formatConditionalBranch(branches.next(), "", indent)}"
-            if (component.elseBlock != null)
-                string += " else {\n${formatCodeBlock(component.elseBlock, indent + TAB)}\n$indent}"
+            if (component.elseBranch != null)
+                string += " else {\n${formatCodeBlock(component.elseBranch, indent + TAB)}\n$indent}"
             string + "\n"
         }
 
@@ -119,7 +119,7 @@ object JavaFormat : CodeFormat() {
 
     private fun formatConditionalBranch(branch: Conditional.Branch, startIndent: String, endIndent: String): String =
             "${startIndent}if (${formatEvaluation(branch.condition)}) {\n" +
-                    "${formatCodeBlock(branch.codeBlock, startIndent + TAB)}\n$endIndent}"
+                    "${formatCodeBlock(branch, startIndent + TAB)}\n$endIndent}"
 
 
     private fun formatCodeBlock(codeBlock: CodeBlock, indent: String): String = codeBlock.getExecutables().joinToString(
