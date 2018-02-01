@@ -22,7 +22,7 @@ class Comparison<T>(
             Comparison.Type.LESS_THAN_EQUAL_TO -> BooleanVar[(left <= right)]
             Comparison.Type.EQUAL_TO -> BooleanVar[(left == right)]
             Comparison.Type.NOT_EQUAL_TO -> BooleanVar[(left != right)]
-            Comparison.Type.GREATER_THEN_EQUAL_TO -> BooleanVar[(left >= right)]
+            Comparison.Type.GREATER_THAN_EQUAL_TO -> BooleanVar[(left >= right)]
             Comparison.Type.GREATER_THAN -> BooleanVar[(left > right)]
         }
     }
@@ -32,7 +32,7 @@ class Comparison<T>(
         LESS_THAN_EQUAL_TO,
         EQUAL_TO,
         NOT_EQUAL_TO,
-        GREATER_THEN_EQUAL_TO,
+        GREATER_THAN_EQUAL_TO,
         GREATER_THAN
     }
 

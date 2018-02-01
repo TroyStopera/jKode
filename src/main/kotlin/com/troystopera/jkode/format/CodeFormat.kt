@@ -66,7 +66,7 @@ abstract class CodeFormat {
         Comparison.Type.LESS_THAN_EQUAL_TO -> "<="
         Comparison.Type.EQUAL_TO -> "=="
         Comparison.Type.NOT_EQUAL_TO -> "!="
-        Comparison.Type.GREATER_THEN_EQUAL_TO -> ">="
+        Comparison.Type.GREATER_THAN_EQUAL_TO -> ">="
         Comparison.Type.GREATER_THAN -> ">"
     }
 
