@@ -19,6 +19,9 @@ actual class Watchable<E : Executable<*>> private constructor(
     constructor(override: KClass<E>, vararg callers: KClass<Executable<*>>) :
             this(classToString(override), callers.map { classToString(it) })
 
+    constructor(override: Class<E>, vararg callers: Class<Executable<*>>) :
+            this(classToString(override.kotlin), callers.map { classToString(it.kotlin) })
+
     override fun toString(): String = string
 
     actual companion object {
