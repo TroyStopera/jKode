@@ -15,13 +15,17 @@ class JFunction<out T : JVar<*>>(
         val name: String
 ) : Executable<T>() {
 
-    val body = CodeBlock()
+    val body: CodeBlock = Body()
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): T {
         val funScope = scope.newChildScope()
         val value = (body.execute(funScope, output, executor) as? Return<*>)?.data?.execute(funScope, output, executor)
                 ?: throw FunctionReturnException(this)
         return returnType.castOrNull(value) ?: throw FunctionReturnException(this, returnType, value.getVarType())
+    }
+
+    private class Body : CodeBlock() {
+        override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
     }
 
 }

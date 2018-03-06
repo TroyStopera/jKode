@@ -23,7 +23,7 @@ abstract class CodeFormat {
 
     fun formatEvaluation(evaluation: Evaluation<*>) = formatEvaluation(evaluation, "")
 
-    abstract fun formatFunction(JFunction: JFunction<*>, indent: String): String
+    abstract fun formatFunction(jFunction: JFunction<*>, indent: String): String
 
     fun formatFunction(JFunction: JFunction<*>) = formatFunction(JFunction, "")
 

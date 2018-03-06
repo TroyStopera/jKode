@@ -21,9 +21,9 @@ class ForLoop(
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
         initialization.execute(scope, output, executor)
         while (condition.execute(scope, output, executor).value) {
-            val v = super.onExecute(scope.newChildScope(), output, executor)
+            val v = executeBody(scope.newChildScope(), output, executor)
             when (v) {
-                is Break -> return null
+                Break -> return null
                 is Return<*> -> return v
             }
             afterthought.execute(scope, output, executor)

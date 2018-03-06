@@ -15,9 +15,9 @@ class WhileLoop(
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
         while (condition.execute(scope, output, executor).value) {
-            val v = super.onExecute(scope, output, executor)
+            val v = executeBody(scope, output, executor)
             when (v) {
-                is Break -> return null
+                Break -> return null
                 is Return<*> -> return v
             }
         }

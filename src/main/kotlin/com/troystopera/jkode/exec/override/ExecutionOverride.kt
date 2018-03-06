@@ -7,6 +7,6 @@ import com.troystopera.jkode.exec.Scope
 
 interface ExecutionOverride<out T : Any?, in E : Executable<T>> {
 
-    fun execute(executable: E, scope: Scope, output: MutableOutput?, executor: Executor?): T
+    fun execute(executable: E, scope: Scope, output: MutableOutput?, executor: Executor): T
 
 }

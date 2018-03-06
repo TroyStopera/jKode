@@ -7,17 +7,17 @@ import com.troystopera.jkode.exec.Executable
 import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.Scope
 
-open class CodeBlock : Component() {
+abstract class CodeBlock : Component() {
 
     private val executables = mutableListOf<Executable<*>>()
 
-    fun getExecutables(): List<Executable<*>> = executables
+    fun getExecutables() = executables.toList()
 
     fun add(executable: Executable<*>) = executables.add(executable)
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
-        for (e in executables) {
-            val v = e.execute(scope, output, executor)
+    fun executeBody(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
+        executables.forEach {
+            val v = it.execute(scope, output, executor)
             if (v is CtrlStmt<*>) return v
         }
         return null

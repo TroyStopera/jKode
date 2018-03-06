@@ -10,7 +10,7 @@ import com.troystopera.jkode.vars.BooleanVar
 
 class Conditional private constructor(
         val branches: List<Branch>,
-        val elseBranch: Branch?
+        val elseBranch: ElseBranch?
 ) : Component() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
@@ -21,27 +21,26 @@ class Conditional private constructor(
     class Builder {
 
         private val branches = mutableListOf<Branch>()
-        private var elseBranch: Branch? = null
+        private var elseBranch: ElseBranch? = null
 
         fun addBranch(branch: Branch) {
             branches.add(branch)
         }
 
-        fun setElseBlock(codeBlock: CodeBlock?) {
-            elseBranch = if (codeBlock != null) Branch(BooleanVar.TRUE.asEval(), codeBlock)
-            else null
+        fun setElse(elseBranch: ElseBranch?) {
+            this.elseBranch = elseBranch
         }
 
         fun build() = Conditional(branches, elseBranch)
 
     }
 
-    data class Branch(val condition: Evaluation<BooleanVar>) : CodeBlock() {
+    class Branch(val condition: Evaluation<BooleanVar>) : CodeBlock() {
+        override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
+    }
 
-        internal constructor(condition: Evaluation<BooleanVar>, codeBlock: CodeBlock) : this(condition) {
-            codeBlock.getExecutables().forEach { add(it) }
-        }
-
+    class ElseBranch : CodeBlock() {
+        override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
     }
 
 }

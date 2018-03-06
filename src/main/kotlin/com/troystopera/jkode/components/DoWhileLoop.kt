@@ -15,16 +15,16 @@ class DoWhileLoop(
 ) : CodeBlock() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
-        var v = super.onExecute(scope, output, executor)
+        var v = executeBody(scope, output, executor)
         when (v) {
-            is Break -> return null
+            Break -> return null
             is Return<*> -> return v
         }
 
         while (condition.execute(scope, output, executor).value) {
-            v = super.onExecute(scope, output, executor)
+            v = executeBody(scope, output, executor)
             when (v) {
-                is Break -> return null
+                Break -> return null
                 is Return<*> -> return v
             }
         }

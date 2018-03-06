@@ -16,7 +16,7 @@ class OverrideExecutor : Executor() {
     fun <T : Any?, E : Executable<T>> addOverride(watchable: Watchable<E>, override: ExecutionOverride<T, E>) {
         var node: OverrideNode<T, E> = overrides[watchable.getBase()] as OverrideNode<T, E>? ?: {
             val node = OverrideNode<T, E>()
-            overrides.put(watchable.getBase(), node)
+            overrides[watchable.getBase()] = node
             node
         }.invoke()
         for (s in watchable.getCallers())
@@ -41,7 +41,7 @@ class OverrideExecutor : Executor() {
         }
 
         override = node?.override as? ExecutionOverride<T, E> ?: override
-        cache.put(cacheKey, override)
+        cache[cacheKey] = override
         return override
     }
 

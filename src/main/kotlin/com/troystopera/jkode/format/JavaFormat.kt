@@ -76,9 +76,9 @@ object JavaFormat : CodeFormat() {
         else -> "Unknown Evaluation ${evaluation::class.simpleName}"
     }
 
-    override fun formatFunction(JFunction: JFunction<*>, indent: String): String =
-            "${indent}public ${formatVarType(JFunction.returnType)} ${JFunction.name}() {\n" +
-                    formatCodeBlock(JFunction.body, indent + TAB) + "\n$indent}"
+    override fun formatFunction(jFunction: JFunction<*>, indent: String): String =
+            "${indent}public ${formatVarType(jFunction.returnType)} ${jFunction.name}() {\n" +
+                    formatCodeBlock(jFunction.body, indent + TAB) + "\n$indent}"
 
     override fun formatStatement(statement: Statement, indent: String): String = indent + when (statement) {
         is Assignment -> "${statement.varName} = ${formatEvaluation(statement.value)}"
