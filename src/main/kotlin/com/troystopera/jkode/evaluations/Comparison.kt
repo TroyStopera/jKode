@@ -27,6 +27,8 @@ class Comparison<T>(
         }
     }
 
+    fun withCompType(type: Comparison.Type): Comparison<T> = Comparison(type, leftValue, rightValue)
+
     enum class Type {
         LESS_THAN,
         LESS_THAN_EQUAL_TO,
