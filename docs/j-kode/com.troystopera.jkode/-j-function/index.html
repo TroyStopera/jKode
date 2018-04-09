@@ -9,6 +9,10 @@
 <br/>
 <h1>JFunction</h1>
 <code><span class="keyword">class </span><span class="identifier">JFunction</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>A class representing a function in jKode. Executes a set of <a href="../../com.troystopera.jkode.exec/-executable/index.html">Executable</a> and returns a <a href="../../com.troystopera.jkode.vars/-j-var/index.html">JVar</a>.</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - the type of <a href="../../com.troystopera.jkode.vars/-j-var/index.html">JVar</a> that this function should return.</p>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -17,7 +21,9 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">JFunction</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.JFunction$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.JFunction.T)), kotlin.String)/returnType">returnType</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.JFunction$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.JFunction.T)), kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+<code><span class="identifier">JFunction</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.JFunction$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.JFunction.T)), kotlin.String)/returnType">returnType</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.JFunction$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.JFunction.T)), kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code>
+<p>Creates a new function called <a href="-init-.html#com.troystopera.jkode.JFunction$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.JFunction.T)), kotlin.String)/name">name</a> that returns a <a href="../../com.troystopera.jkode.vars/-j-var/index.html">JVar</a> of type <a href="index.html#T">T</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -29,21 +35,27 @@
 <p><a href="body.html">body</a></p>
 </td>
 <td>
-<code><span class="keyword">val </span><span class="identifier">body</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.components/-code-block/index.html"><span class="identifier">CodeBlock</span></a></code></td>
+<code><span class="keyword">val </span><span class="identifier">body</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.components/-code-block/index.html"><span class="identifier">CodeBlock</span></a></code>
+<p>The <a href="../../com.troystopera.jkode.components/-code-block/index.html">CodeBlock</a> that contains all <a href="../../com.troystopera.jkode.exec/-executable/index.html">Executable</a>s within this function.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="name.html">name</a></p>
 </td>
 <td>
-<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>the name of the function.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="return-type.html">returnType</a></p>
 </td>
 <td>
-<code><span class="keyword">val </span><span class="identifier">returnType</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.vars/-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">val </span><span class="identifier">returnType</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.vars/-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>the <a href="../../com.troystopera.jkode.vars/-var-type/index.html">VarType</a> of the returned <a href="../../com.troystopera.jkode.vars/-j-var/index.html">JVar</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -55,7 +67,9 @@
 <p><a href="on-execute.html">onExecute</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">onExecute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.JFunction$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/scope">scope</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-scope/index.html"><span class="identifier">Scope</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.JFunction$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/output">output</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-mutable-output/index.html"><span class="identifier">MutableOutput</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.JFunction$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executor/index.html"><span class="identifier">Executor</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html#T"><span class="identifier">T</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">onExecute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.JFunction$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/scope">scope</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-scope/index.html"><span class="identifier">Scope</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.JFunction$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/output">output</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-mutable-output/index.html"><span class="identifier">MutableOutput</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.JFunction$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executor/index.html"><span class="identifier">Executor</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html#T"><span class="identifier">T</span></a></code>
+<p>Executes all items in the <a href="body.html">body</a> and watches for a <a href="../../com.troystopera.jkode.control/-return/index.html">Return</a> value to return.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -67,7 +81,9 @@
 <p><a href="../../com.troystopera.jkode.exec/-executable/execute.html">execute</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/scope">scope</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-scope/index.html"><span class="identifier">Scope</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/output">output</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-mutable-output/index.html"><span class="identifier">MutableOutput</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executor/index.html"><span class="identifier">Executor</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.exec/-executable/index.html#T"><span class="identifier">T</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/scope">scope</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-scope/index.html"><span class="identifier">Scope</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/output">output</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-mutable-output/index.html"><span class="identifier">MutableOutput</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executor/index.html"><span class="identifier">Executor</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.exec/-executable/index.html#T"><span class="identifier">T</span></a></code>
+<p>Executes this class' <a href="../../com.troystopera.jkode.exec/-executable/on-execute.html">onExecute</a> method on the given <a href="../../com.troystopera.jkode.exec/-scope/index.html">Scope</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>

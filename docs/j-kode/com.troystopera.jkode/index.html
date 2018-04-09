@@ -17,42 +17,54 @@
 <p><a href="-blank-line/index.html">BlankLine</a></p>
 </td>
 <td>
-<code><span class="keyword">object </span><span class="identifier">BlankLine</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">object </span><span class="identifier">BlankLine</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code>
+<p>This object represents a blank line in a program.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="-component/index.html">Component</a></p>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Component</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-ctrl-stmt/index.html"><span class="identifier">CtrlStmt</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Component</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-ctrl-stmt/index.html"><span class="identifier">CtrlStmt</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">&gt;</span></code>
+<p>Abstract class that represents a grouping of code that can be executed.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="-ctrl-stmt/index.html">CtrlStmt</a></p>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CtrlStmt</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-ctrl-stmt/index.html"><span class="identifier">CtrlStmt</span></a><span class="symbol">&lt;</span><a href="-ctrl-stmt/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">CtrlStmt</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-ctrl-stmt/index.html"><span class="identifier">CtrlStmt</span></a><span class="symbol">&lt;</span><a href="-ctrl-stmt/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Abstract class that is used during execution to stop a certain execution branch.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="-evaluation/index.html">Evaluation</a></p>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Evaluation</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-evaluation/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Evaluation</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-evaluation/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Abstract class representing code that returns some variable/value at runtime.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="-j-function/index.html">JFunction</a></p>
 </td>
 <td>
-<code><span class="keyword">class </span><span class="identifier">JFunction</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-j-function/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">class </span><span class="identifier">JFunction</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="-j-function/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>A class representing a function in jKode. Executes a set of <a href="../com.troystopera.jkode.exec/-executable/index.html">Executable</a> and returns a <a href="../com.troystopera.jkode.vars/-j-var/index.html">JVar</a>.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="-statement/index.html">Statement</a></p>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Statement</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Statement</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">&gt;</span></code>
+<p>Abstract class that represents an <a href="../com.troystopera.jkode.exec/-executable/index.html">Executable</a> which makes changes to the <a href="../com.troystopera.jkode.exec/-scope/index.html">Scope</a> but does not return anything.</p>
+</td>
 </tr>
 </tbody>
 </table>
