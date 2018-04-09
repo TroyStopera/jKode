@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ArrayVar - jKode</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">jKode</a>&nbsp;/&nbsp;<a href="../index.html">com.troystopera.jkode.vars</a>&nbsp;/&nbsp;<a href="./index.html">ArrayVar</a><br/>
+<br/>
+<h1>ArrayVar</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">ArrayVar</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ArrayVar</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.vars.ArrayVar$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.vars.ArrayVar.T)), kotlin.Array((com.troystopera.jkode.vars.ArrayVar.T)))/arrayVarType">arrayVarType</span><span class="symbol">:</span>&nbsp;<a href="../-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.vars.ArrayVar$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.vars.ArrayVar.T)), kotlin.Array((com.troystopera.jkode.vars.ArrayVar.T)))/array">array</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="array-var-type.html">arrayVarType</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">arrayVarType</span><span class="symbol">: </span><a href="../-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-j-var/is-null.html">isNull</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isNull</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-j-var/value.html">value</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="../-j-var/index.html#T"><span class="identifier">T</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="as-eval.html">asEval</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">asEval</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-j-var-evaluation/index.html"><span class="identifier">JVarEvaluation</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">ArrayVar</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get.html">get</a></p>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.vars.ArrayVar$get(kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="index.html#T"><span class="identifier">T</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-var-type.html">getVarType</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getVarType</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="./index.html"><span class="identifier">ArrayVar</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="set.html">set</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">set</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.vars.ArrayVar$set(kotlin.Int, com.troystopera.jkode.vars.ArrayVar.T)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.vars.ArrayVar$set(kotlin.Int, com.troystopera.jkode.vars.ArrayVar.T)/value">value</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-j-var/equals.html">equals</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.vars.JVar$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-j-var/hash-code.html">hashCode</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-j-var/to-string.html">toString</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-n-u-l-l.html">NULL</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">NULL</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ArrayVar</span></a><span class="symbol">&lt;</span><a href="../-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

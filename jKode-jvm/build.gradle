@@ -13,7 +13,8 @@ apply plugin: 'kotlin-platform-jvm'
 apply plugin: 'org.jetbrains.dokka'
 
 dokka {
-    outputFormat = 'javadoc'
+    moduleName = 'jKode'
+    outputFormat = 'html'
     outputDirectory = "../docs"
     includes = ['../packages.md']
 }

@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Executor - jKode</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">jKode</a>&nbsp;/&nbsp;<a href="../index.html">com.troystopera.jkode.exec</a>&nbsp;/&nbsp;<a href="./index.html">Executor</a><br/>
+<br/>
+<h1>Executor</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">Executor</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-exception-handler/index.html">ExceptionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ExceptionHandler</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Executor</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="exception-handler.html">exceptionHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">exceptionHandler</span><span class="symbol">: </span><a href="-exception-handler/index.html"><span class="identifier">ExceptionHandler</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="current-call-stack.html">currentCallStack</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">currentCallStack</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-call-stack/index.html"><span class="identifier">CallStack</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="execute.html">execute</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.exec.Executor$execute(com.troystopera.jkode.exec.Executable((kotlin.Any)))/executable">executable</span><span class="symbol">:</span>&nbsp;<a href="../-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-output/index.html"><span class="identifier">Output</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-post-execute.html">onPostExecute</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">E</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="on-post-execute.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">onPostExecute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.exec.Executor$onPostExecute(com.troystopera.jkode.exec.Executor.onPostExecute.E, com.troystopera.jkode.exec.Executor.onPostExecute.T)/executable">executable</span><span class="symbol">:</span>&nbsp;<a href="on-post-execute.html#E"><span class="identifier">E</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executor$onPostExecute(com.troystopera.jkode.exec.Executor.onPostExecute.E, com.troystopera.jkode.exec.Executor.onPostExecute.T)/result">result</span><span class="symbol">:</span>&nbsp;<a href="on-post-execute.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-pre-execute.html">onPreExecute</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">E</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="on-pre-execute.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">onPreExecute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.exec.Executor$onPreExecute(com.troystopera.jkode.exec.Executor.onPreExecute.E)/executable">executable</span><span class="symbol">:</span>&nbsp;<a href="on-pre-execute.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.exec.override/-execution-override/index.html"><span class="identifier">ExecutionOverride</span></a><span class="symbol">&lt;</span><a href="on-pre-execute.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<a href="on-pre-execute.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.exec.override/-override-executor/index.html">OverrideExecutor</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OverrideExecutor</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Executor</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

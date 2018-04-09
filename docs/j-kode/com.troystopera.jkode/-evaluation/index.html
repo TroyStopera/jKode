@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Evaluation - jKode</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">jKode</a>&nbsp;/&nbsp;<a href="../index.html">com.troystopera.jkode</a>&nbsp;/&nbsp;<a href="./index.html">Evaluation</a><br/>
+<br/>
+<h1>Evaluation</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Evaluation</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executable/index.html"><span class="identifier">Executable</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Evaluation</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.Evaluation$<init>(com.troystopera.jkode.vars.VarType((com.troystopera.jkode.Evaluation.T)))/varType">varType</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="var-type.html">varType</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">varType</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.vars/-var-type/index.html"><span class="identifier">VarType</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.exec/-executable/execute.html">execute</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">execute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/scope">scope</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-scope/index.html"><span class="identifier">Scope</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/output">output</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-mutable-output/index.html"><span class="identifier">MutableOutput</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$execute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executor/index.html"><span class="identifier">Executor</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.exec/-executable/index.html#T"><span class="identifier">T</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.exec/-executable/on-execute.html">onExecute</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onExecute</span><span class="symbol">(</span><span class="identifier" id="com.troystopera.jkode.exec.Executable$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/scope">scope</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-scope/index.html"><span class="identifier">Scope</span></a><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/output">output</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-mutable-output/index.html"><span class="identifier">MutableOutput</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.troystopera.jkode.exec.Executable$onExecute(com.troystopera.jkode.exec.Scope, com.troystopera.jkode.exec.MutableOutput, com.troystopera.jkode.exec.Executor)/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.exec/-executor/index.html"><span class="identifier">Executor</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.troystopera.jkode.exec/-executable/index.html#T"><span class="identifier">T</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.evaluations/-array-access/index.html">ArrayAccess</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ArrayAccess</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Evaluation</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.evaluations/-array-access/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.evaluations/-array-length/index.html">ArrayLength</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ArrayLength</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Evaluation</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.vars/-int-var/index.html"><span class="identifier">IntVar</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.evaluations/-comparison/index.html">Comparison</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Comparison</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Evaluation</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.vars/-boolean-var/index.html"><span class="identifier">BooleanVar</span></a><span class="symbol">&gt;</span><span class="keyword"> where </span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html"><span class="identifier">Comparable</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.evaluations/-comparison/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.vars/-j-var-evaluation/index.html">JVarEvaluation</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">JVarEvaluation</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Evaluation</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.vars/-j-var-evaluation/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.evaluations/-math-operation/index.html">MathOperation</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MathOperation</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Evaluation</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.evaluations/-math-operation/index.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="keyword"> where </span><span class="identifier">V</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.evaluations/-math-operation/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">V</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.evaluations/-math-operation/-operable/index.html"><span class="identifier">Operable</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.evaluations/-math-operation/index.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.troystopera.jkode.evaluations/-variable/index.html">Variable</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Variable</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.troystopera.jkode.vars/-j-var/index.html"><span class="identifier">JVar</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Evaluation</span></a><span class="symbol">&lt;</span><a href="../../com.troystopera.jkode.evaluations/-variable/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

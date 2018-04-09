@@ -4,7 +4,7 @@ Base package for jKode project containing base implementations for all Executabl
 
 # Package com.troystopera.jkode.components
 
-Implementations of the [Component]; these classes represent basic compound blocks of code and may return [CtrlStmt]. 
+Implementations of the [Component] class; these classes represent basic compound blocks of code and may return [CtrlStmt]. 
 
 # Package com.troystopera.jkode.control
 
@@ -12,7 +12,7 @@ Classes used to interrupt execution of code.
 
 # Package com.troystopera.jkode.evaluations
 
-Implementations of the [Evaluation]; these classes return a value during execution of code.
+Implementations of the [Evaluation] class; these classes return a value during execution of code.
 
 # Package com.troystopera.jkode.exceptions
 
@@ -20,13 +20,13 @@ Contains exceptions that may be "thrown" during virtual execution of code.
 
 # Package com.troystopera.jkode.exceptions.compile
 
-Implementations of the [JKodeCompileException]; exceptions that would normally be thrown at compile time.
+Implementations of the [JKodeCompileException] class; exceptions that would normally be thrown at compile time.
 
 These exceptions include anything that would prevent a compiler from compiling, such as unknown variable references and improper syntax. 
 
 # Package com.troystopera.jkode.exceptions.runtime
 
-Implementations of the [JKodeRuntimeException]; exceptions that would normally be thrown at runtime.
+Implementations of the [JKodeRuntimeException] class; exceptions that would normally be thrown at runtime.
 
 These exceptions include anything that would be thrown during code execution, such as IndexOutOfBounds and NullPointer. 
 
@@ -44,7 +44,7 @@ Contains classes for the formatting of virtual code into a human readable String
 
 # Package com.troystopera.jkode.statements
 
-Implementations of the [Statement]; these classes alter values at virtual runtime, but return nothing.
+Implementations of the [Statement] class; these classes alter values at virtual runtime, but return nothing.
 
 # Package com.troystopera.jkode.vars
 
