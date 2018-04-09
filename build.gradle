@@ -12,6 +12,11 @@ buildscript {
 
 apply plugin: 'kotlin-platform-common'
 
+allprojects {
+    group = 'com.troystopera.jkode'
+    version = '1.0.0'
+}
+
 repositories {
     maven { url 'http://dl.bintray.com/kotlin/kotlin-1.2' }
     mavenCentral()
