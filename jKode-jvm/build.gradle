@@ -15,6 +15,7 @@ apply plugin: 'org.jetbrains.dokka'
 dokka {
     outputFormat = 'javadoc'
     outputDirectory = "../docs"
+    includes = ['../packages.md']
 }
 
 repositories {
