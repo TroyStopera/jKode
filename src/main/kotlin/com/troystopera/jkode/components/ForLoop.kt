@@ -13,9 +13,9 @@ import com.troystopera.jkode.vars.BooleanVar
 import com.troystopera.jkode.vars.IntVar
 
 class ForLoop(
-        val initialization: Declaration<IntVar>,
-        val condition: Evaluation<BooleanVar>,
-        val afterthought: Assignment
+        var initialization: Declaration<IntVar>,
+        var condition: Evaluation<BooleanVar>,
+        var afterthought: Assignment
 ) : CodeBlock() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {

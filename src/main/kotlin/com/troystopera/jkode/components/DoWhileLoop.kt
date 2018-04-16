@@ -11,7 +11,7 @@ import com.troystopera.jkode.exec.Scope
 import com.troystopera.jkode.vars.BooleanVar
 
 class DoWhileLoop(
-        val condition: Evaluation<BooleanVar>
+        var condition: Evaluation<BooleanVar>
 ) : CodeBlock() {
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {

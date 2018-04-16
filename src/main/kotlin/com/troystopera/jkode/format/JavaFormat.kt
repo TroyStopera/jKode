@@ -26,7 +26,7 @@ object JavaFormat : CodeFormat() {
             while (branches.hasNext())
                 string += " else ${formatConditionalBranch(branches.next(), indent)}"
             if (component.elseBranch != null)
-                string += " else {\n${formatCodeBlock(component.elseBranch, indent + TAB)}\n$indent}"
+                string += " else {\n${formatCodeBlock(component.elseBranch!!, indent + TAB)}\n$indent}"
             string + "\n"
         }
 
