@@ -18,15 +18,15 @@ class ForLoop(
         var afterthought: Assignment
 ) : CodeBlock() {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
-        initialization.execute(scope, output, executor)
-        while (condition.execute(scope, output, executor).value) {
-            val v = executeBody(scope.newChildScope(), output, executor)
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): CtrlStmt<*>? {
+        initialization.execute(scope, executor, output)
+        while (condition.execute(scope, executor, output).value) {
+            val v = executeBody(scope.newChildScope(), executor, output)
             when (v) {
                 Break -> return null
                 is Return<*> -> return v
             }
-            afterthought.execute(scope, output, executor)
+            afterthought.execute(scope, executor, output)
         }
         return null
     }

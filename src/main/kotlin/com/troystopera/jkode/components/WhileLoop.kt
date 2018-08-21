@@ -13,9 +13,9 @@ class WhileLoop(
         var condition: Evaluation<BooleanVar>
 ) : CodeBlock() {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
-        while (condition.execute(scope, output, executor).value) {
-            val v = executeBody(scope, output, executor)
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): CtrlStmt<*>? {
+        while (condition.execute(scope, executor, output).value) {
+            val v = executeBody(scope, executor, output)
             when (v) {
                 Break -> return null
                 is Return<*> -> return v

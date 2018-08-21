@@ -11,7 +11,7 @@ class Assignment(
         val value: Evaluation<*>
 ) : Statement() {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
-            scope.assign(varName, value.execute(scope, output, executor))
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) =
+            scope.assign(varName, value.execute(scope, executor, output))
 
 }

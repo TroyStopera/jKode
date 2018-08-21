@@ -7,9 +7,15 @@ class OverrideExecutor : Executor() {
     private val overrides = hashMapOf<String, OverrideNode<*, *>>()
     private val cache = hashMapOf<String, ExecutionOverride<*, *>?>()
 
+    // keeps track of the last executable to be checked for override
+    // if this isn't here an infinite loop recurs when an ExecutionOverride calls the base execute method
+    private var lastExecutable: Executable<*>? = null
+
     override fun <T, E : Executable<T>> onPreExecute(executable: E): ExecutionOverride<T, E>? {
         super.onPreExecute(executable)
-        return getOverride(currentCallStack())
+        val new = lastExecutable !== executable
+        lastExecutable = executable
+        return if (new) getOverride(currentCallStack()) else null
     }
 
     @Suppress("UNCHECKED_CAST")

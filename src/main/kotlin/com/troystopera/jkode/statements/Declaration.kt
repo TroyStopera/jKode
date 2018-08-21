@@ -14,7 +14,7 @@ class Declaration<out T : JVar<*>>(
         val initialValue: Evaluation<T>? = null
 ) : Statement() {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
-            scope.declare(varType, varName, initialValue?.execute(scope, output, executor))
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) =
+            scope.declare(varType, varName, initialValue?.execute(scope, executor, output))
 
 }

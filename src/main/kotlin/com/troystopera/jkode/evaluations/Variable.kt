@@ -13,7 +13,7 @@ class Variable<out T : JVar<*>>(
         val name: String
 ) : Evaluation<T>(type) {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): T {
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): T {
         val value = varType.castOrNull(scope[name])
         return value ?: throw TypeCastException(name, varType, value?.getVarType())
     }

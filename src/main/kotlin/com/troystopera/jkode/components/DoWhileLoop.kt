@@ -14,15 +14,15 @@ class DoWhileLoop(
         var condition: Evaluation<BooleanVar>
 ) : CodeBlock() {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
-        var v = executeBody(scope, output, executor)
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): CtrlStmt<*>? {
+        var v = executeBody(scope, executor, output)
         when (v) {
             Break -> return null
             is Return<*> -> return v
         }
 
-        while (condition.execute(scope, output, executor).value) {
-            v = executeBody(scope, output, executor)
+        while (condition.execute(scope, executor, output).value) {
+            v = executeBody(scope, executor, output)
             when (v) {
                 Break -> return null
                 is Return<*> -> return v

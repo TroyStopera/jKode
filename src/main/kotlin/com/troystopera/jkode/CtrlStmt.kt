@@ -20,6 +20,6 @@ abstract class CtrlStmt<T : Any>(val data: T) : Executable<CtrlStmt<T>>() {
      * This [Executable] returns itself when executed in order to pass its data up the call stack.
      * @return this CtrlStmt.
      */
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = this
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) = this
 
 }

@@ -13,6 +13,6 @@ object BlankLine : Executable<Unit>() {
      * Does nothing, and returns nothing.
      * @return [Unit]
      */
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = Unit
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) = Unit
 
 }

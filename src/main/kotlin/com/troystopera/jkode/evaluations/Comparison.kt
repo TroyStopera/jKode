@@ -14,9 +14,9 @@ class Comparison<T>(
         val rightValue: Evaluation<T>
 ) : Evaluation<BooleanVar>(VarType.BOOLEAN) where T : JVar<*>, T : Comparable<T> {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): BooleanVar {
-        val left = leftValue.execute(scope, output, executor)
-        val right = rightValue.execute(scope, output, executor)
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): BooleanVar {
+        val left = leftValue.execute(scope, executor, output)
+        val right = rightValue.execute(scope, executor, output)
         return when (type) {
             Comparison.Type.LESS_THAN -> BooleanVar[(left < right)]
             Comparison.Type.LESS_THAN_EQUAL_TO -> BooleanVar[(left <= right)]

@@ -26,20 +26,18 @@ class JFunction<out T : JVar<*>>(
     /**
      * The [CodeBlock] that contains all [Executable]s within this function.
      */
-    val body: CodeBlock = Body()
+    val body = object : CodeBlock() {
+        override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) = executeBody(scope, executor, output)
+    }
 
     /**
      * Executes all items in the [body] and watches for a [Return] value to return.
      */
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): T {
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): T {
         val funScope = scope.newChildScope()
-        val value = (body.execute(funScope, output, executor) as? Return<*>)?.data?.execute(funScope, output, executor)
+        val value = (body.execute(funScope, executor, output) as? Return<*>)?.data?.execute(funScope, executor, output)
                 ?: throw FunctionReturnException(this)
         return returnType.castOrNull(value) ?: throw FunctionReturnException(this, returnType, value.getVarType())
-    }
-
-    private class Body : CodeBlock() {
-        override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
     }
 
 }

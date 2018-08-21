@@ -12,9 +12,9 @@ class MathOperation<T : Any, V>(
         val rightValue: Evaluation<V>
 ) : Evaluation<V>(leftValue.varType) where V : JVar<T>, V : MathOperation.Operable<V> {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): V {
-        val left = leftValue.execute(scope, output, executor)
-        val right = rightValue.execute(scope, output, executor)
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): V {
+        val left = leftValue.execute(scope, executor, output)
+        val right = rightValue.execute(scope, executor, output)
         return when (type) {
             MathOperation.Type.ADD -> left + right
             MathOperation.Type.SUBTRACT -> left - right

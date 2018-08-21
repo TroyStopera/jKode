@@ -7,6 +7,6 @@ import com.troystopera.jkode.exec.Scope
 
 class JVarEvaluation<out T : JVar<*>>(val jVar: T, varType: VarType<T>) : Evaluation<T>(varType) {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = jVar
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) = jVar
 
 }

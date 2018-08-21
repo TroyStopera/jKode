@@ -25,15 +25,14 @@ open class Executor {
         val scope = Scope()
 
         val result = try {
-            executable.execute(scope, output, this)
+            executable.execute(scope, this, output)
         } catch (e: JKodeCompileException) {
             exceptionHandler?.handleCompileException(e)
         } catch (e: JKodeRuntimeException) {
             exceptionHandler?.handleRuntimeException(e)
         }
 
-        if (result is JVar<*>)
-            output.setReturn(result)
+        if (result is JVar<*>) output.setReturn(result)
 
         return output
     }

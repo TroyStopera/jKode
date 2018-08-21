@@ -15,8 +15,7 @@ class ArrayAssign<T : JVar<*>>(
         val value: Evaluation<T>
 ) : Statement() {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
-            array.execute(scope, output, executor)
-                    .set(index.execute(scope, output, executor).value, value.execute(scope, output, executor))
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) = array.execute(scope, executor, output)
+            .set(index.execute(scope, executor, output).value, value.execute(scope, executor, output))
 
 }

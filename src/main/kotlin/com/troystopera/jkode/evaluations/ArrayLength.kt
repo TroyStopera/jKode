@@ -11,7 +11,7 @@ class ArrayLength(
         val array: Evaluation<ArrayVar<*>>
 ) : Evaluation<IntVar>(VarType.INT) {
 
-    override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) =
-            IntVar[array.execute(scope, output, executor).value.size]
+    override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?) =
+            IntVar[array.execute(scope, executor, output).value.size]
 
 }
