@@ -15,6 +15,8 @@ abstract class CodeBlock : Component() {
 
     fun add(executable: Executable<*>) = executables.add(executable)
 
+    fun addAll(executables: Iterable<Executable<*>>) = this.executables.addAll(executables)
+
     fun executeBody(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
         executables.forEach {
             val v = it.execute(scope, output, executor)

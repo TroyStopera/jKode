@@ -15,7 +15,7 @@ class Conditional private constructor(
 
     override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?): CtrlStmt<*>? {
         val branchTaken = branches.firstOrNull { it.condition.execute(scope, output, executor).value }
-        return branchTaken?.execute(scope, output, executor) ?: elseBranch?.execute(scope, output, executor)
+        return branchTaken?.body?.execute(scope, output, executor) ?: elseBranch?.body?.execute(scope, output, executor)
     }
 
     class Builder {
@@ -37,12 +37,16 @@ class Conditional private constructor(
 
     }
 
-    class Branch(var condition: Evaluation<BooleanVar>) : CodeBlock() {
-        override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
+    class Branch(var condition: Evaluation<BooleanVar>) {
+        val body = object : CodeBlock() {
+            override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
+        }
     }
 
-    class ElseBranch : CodeBlock() {
-        override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
+    class ElseBranch {
+        val body = object : CodeBlock() {
+            override fun onExecute(scope: Scope, output: MutableOutput?, executor: Executor?) = executeBody(scope, output, executor)
+        }
     }
 
 }
